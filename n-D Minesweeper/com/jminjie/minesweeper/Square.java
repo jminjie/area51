@@ -14,13 +14,13 @@ public class Square extends JButton{
   //initially "hidden" other options integer between [0, 26] or "mine"
   
   Square(){
-    super(new ImageIcon("src/Resources/hiddenIcon.png"));
-    setDisabledIcon(new ImageIcon("src/Resources/hiddenIcon.png"));
+    super(new ImageIcon(Minesweeper.hiddenIcon));
+    setDisabledIcon(new ImageIcon(Minesweeper.hiddenIcon));
     value = "hidden";
     hidden = true;
     setBorder(null);
     setPreferredSize(new Dimension(20, 20));
-    setPressedIcon(new ImageIcon("src/Resources/pressedHiddenIcon.png"));
+    setPressedIcon(new ImageIcon(Minesweeper.pressedHiddenIcon));
     flagged = false;
   }
   
@@ -36,25 +36,32 @@ public class Square extends JButton{
   
   void toggleFlag(){
     if (!flagged){
-      setIcon(new ImageIcon("src/Resources/flagIcon.png"));
+      setIcon(new ImageIcon(Minesweeper.flagIcon));
       flagged = true;
       setEnabled(false);
-      setDisabledIcon(new ImageIcon("src/Resources/flagIcon.png"));
+      setDisabledIcon(new ImageIcon(Minesweeper.flagIcon));
     }
     else{
-      setIcon(new ImageIcon("src/Resources/hiddenIcon.png"));
+      setIcon(new ImageIcon(Minesweeper.hiddenIcon));
       flagged = false;
       setEnabled(true);
     }
   }
   
   void revealValue(){
-    setIcon(new ImageIcon("src/Resources/" + value + "Icon.png"));
-    setDisabledIcon(new ImageIcon("src/Resources/" + value + "Icon.png"));
+	if (value.equals("mine")){
+		setIcon(new ImageIcon(Minesweeper.mineIcon));
+		setDisabledIcon(new ImageIcon(Minesweeper.mineIcon));
+	}
+	else{
+		setIcon(new ImageIcon(Minesweeper.numIcon[Integer.parseInt(value)]));
+		setDisabledIcon(new ImageIcon(Minesweeper.numIcon[Integer.parseInt(value)]));
+	}
+	
     hidden = false;
     if (flagged && !value.equals("mine")){
-      setIcon(new ImageIcon("src/Resources/badFlagIcon.png"));
-      setDisabledIcon(new ImageIcon("src/Resources/badFlagIcon.png"));
+      setIcon(new ImageIcon(Minesweeper.badFlagIcon));
+      setDisabledIcon(new ImageIcon(Minesweeper.badFlagIcon));
     }
   }
   

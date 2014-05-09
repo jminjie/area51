@@ -59,6 +59,7 @@ public class MainGameFrame3D extends JFrame{
   
   MainGameFrame3D(){
     super("Minesweeper");
+        
     setLayout(new BorderLayout());
     first_click = true;
     mines_left = NUM_MINES;
@@ -70,7 +71,6 @@ public class MainGameFrame3D extends JFrame{
       mainPanelFloor[i] = new JPanel();
       mainPanelFloor[i].setLayout(new GridLayout(ROWS, COLS));
     }
-    
     
     squares = new Square[ROWS][COLS][FLOORS];
     

@@ -6,7 +6,7 @@ import java.io.*;
 public class HighscoreManager {
   private ArrayList<Score> scores;
   private final String HIGHSCORE_FILE;
-  private final String HIGHSCORE_FILE_PATH = "src/resources/";
+  private final String HIGHSCORE_FILE_PATH = "Resources/";
   
   ObjectOutputStream outputStream = null;
   ObjectInputStream inputStream = null;
