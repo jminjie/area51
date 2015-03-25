@@ -34,7 +34,7 @@ public class Minesweeper {
 	flagIcon = tk.createImage(flagIconURL);
 	tk.prepareImage(flagIcon, -1, -1, null);
 	  
-	badFlagIconURL = tk.getClass().getResource("/Resources/badFagIcon.png");
+	badFlagIconURL = tk.getClass().getResource("/Resources/badFlagIcon.png");
 	badFlagIcon = tk.createImage(badFlagIconURL);
 	tk.prepareImage(badFlagIcon, -1, -1, null);
 
@@ -45,8 +45,7 @@ public class Minesweeper {
       numIcon[i] = tk.createImage(numIconURL[i]);
       tk.prepareImage(numIcon[i], -1, -1, null);
 	}
-    
-	MainGameFrame3D mainGameFrame = new MainGameFrame3D();
+	new MainGameFrame3D();
     return;
   }
   
@@ -56,19 +55,19 @@ public class Minesweeper {
     mode = newGameModalDialog.getInput();
     mainFrame.dispose();
     if (mode == "0"){
-      MainGameFrame0D mainGameFrame0D = new MainGameFrame0D();
+      new MainGameFrame0D();
     }
     else if (mode == "1"){
-      MainGameFrame1D mainGameFrame1D = new MainGameFrame1D();
+      new MainGameFrame1D();
     }
     else if (mode == "2"){
-      MainGameFrame2D mainGameFrame2D = new MainGameFrame2D();
+      new MainGameFrame2D();
     }
     else if (mode == "3"){
-      MainGameFrame3D mainGameFrame3D = new MainGameFrame3D();
+      new MainGameFrame3D();
     }
     else if (mode == "4"){
-      MainGameFrame4D mainGameFrame4D = new MainGameFrame4D();
+      new MainGameFrame4D();
     }     
   }
 }

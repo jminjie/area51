@@ -41,10 +41,14 @@ public class HighscoreManager {
     updateScoreFile();
   }
   
-  public void loadScoreFile(){
+  @SuppressWarnings("unchecked")
+public void loadScoreFile(){
     try{
       inputStream = new ObjectInputStream(new FileInputStream(HIGHSCORE_FILE_PATH + HIGHSCORE_FILE));
-      scores = (ArrayList<Score>) inputStream.readObject();
+      if (inputStream.readObject() instanceof ArrayList)
+    	  scores = (ArrayList<Score>) inputStream.readObject();
+      else
+    	throw new Exception("Score file not of type ArrayList");	  
     }
     catch (FileNotFoundException e){
       System.out.println("No data available");
